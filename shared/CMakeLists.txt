@@ -10,12 +10,14 @@ target_include_directories(minidrive_shared
 
 target_link_libraries(minidrive_shared
     PUBLIC
-        asio::asio
         nlohmann_json::nlohmann_json
-        libsodium::libsodium
-        spdlog::spdlog_header_only
+        spdlog::spdlog
+        sodium
     PUBLIC
         minidrive_warnings
 )
+
+# Require C++23
+target_compile_features(minidrive_shared PUBLIC cxx_std_23)
 
 set_target_properties(minidrive_shared PROPERTIES EXPORT_NAME shared)

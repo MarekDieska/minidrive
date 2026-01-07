@@ -3,7 +3,7 @@
 namespace minidrive {
 
 const char* resolved_version() {
-    return version().data();
+    return "0.1.0";
 }
 
 } // namespace minidrive

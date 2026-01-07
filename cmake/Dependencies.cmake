@@ -1,17 +1,5 @@
 include(FetchContent)
 
-# Asio (header-only)
-FetchContent_Declare(
-    asio
-    GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
-    GIT_TAG asio-1-36-0
-)
-FetchContent_MakeAvailable(asio)
-add_library(asio INTERFACE)
-target_include_directories(asio SYSTEM INTERFACE ${asio_SOURCE_DIR}/asio/include)
-target_compile_definitions(asio INTERFACE ASIO_STANDALONE)
-add_library(asio::asio ALIAS asio)
-
 # nlohmann::json (header-only)
 FetchContent_Declare(
     nlohmann_json
@@ -21,7 +9,7 @@ FetchContent_Declare(
 set(JSON_SystemInclude ON CACHE INTERNAL "")
 FetchContent_MakeAvailable(nlohmann_json)
 
-# spdlog (optional)
+# spdlog
 FetchContent_Declare(
     spdlog
     GIT_REPOSITORY https://github.com/gabime/spdlog.git

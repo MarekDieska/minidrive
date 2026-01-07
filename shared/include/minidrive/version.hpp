@@ -10,4 +10,4 @@ inline constexpr std::string_view version() noexcept {
 
 const char* resolved_version();
 
-} // namespace minidrive
+}

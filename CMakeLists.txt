@@ -1,23 +1,24 @@
 cmake_minimum_required(VERSION 3.22)
+project(minidrive VERSION 0.1.0 LANGUAGES CXX)
 
-project(MiniDrive VERSION 0.1.0 LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 20)
+# C++23 standard
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(MINIDRIVE_BUILD_TESTS "Build MiniDrive tests" ON)
+# Export compile_commands.json for IDE
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(Dependencies)
+# Load dependencies
+include(cmake/Dependencies.cmake)
 
+# Subprojects
 add_subdirectory(shared)
 add_subdirectory(server)
 add_subdirectory(client)
 
-if(MINIDRIVE_BUILD_TESTS)
+# Tests (optional)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt")
+    enable_testing()
     add_subdirectory(tests)
 endif()
-
-include(GNUInstallDirs)
-

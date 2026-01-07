@@ -5,7 +5,6 @@
 #include <string>
 
 // Test library headers
-#include <asio.hpp>
 #include <nlohmann/json.hpp>
 #include <spdlog/spdlog.h>
 #include <sodium.h>
@@ -15,11 +14,6 @@ int main() {
     const auto v = minidrive::version();
     assert(!v.empty());
     std::cout << "Version library linked: " << v << std::endl;
-
-    // Test 2: Asio
-    asio::io_context io_context;
-    assert(io_context.stopped() == false);
-    std::cout << "Asio library linked" << std::endl;
 
     // Test 3: nlohmann/json
     nlohmann::json j = {{"test", "value"}, {"number", 42}};
