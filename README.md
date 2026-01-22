@@ -5,8 +5,8 @@
 MiniDrive is a client-server file synchronization system written in C++. The application enables file transfer and synchronization between a local machine and a remote server, similar to cloud storage services like OneDrive or Dropbox.
 
 The system consists of two components:
-- **Server** (`./server`) - Listens for client connections and manages the file repository
-- **Client** (`./client`) - Connects to the server and provides an interactive command-line interface for file operations
+- **Server** (`./build/server`) - Listens for client connections and manages the file repository
+- **Client** (`./build/client`) - Connects to the server and provides an interactive command-line interface for file operations
 
 ### Key Features
 
